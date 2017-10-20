@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: path.resolve(__dirname, 'src/main'),
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
@@ -48,8 +48,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    }
+      'vue$': 'vue/dist/vue.esm.js',
+      '@components': path.resolve(__dirname, 'src/components/')
+    },
+    extensions: ['.js', '.vue']
   },
   devServer: {
     historyApiFallback: true
