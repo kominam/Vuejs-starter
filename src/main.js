@@ -1,5 +1,7 @@
 import Vue from 'vue';
-import navBar from './components/navBar.vue';
+import router from './routes/index'
+import navBar from '@components/navBar';
+import store from './store/store';
 
 require('../bootstrap/bootstrap');
 
@@ -7,5 +9,6 @@ Vue.component('navBar', navBar);
 
 new Vue({
   el: "#app",
-  render: h => h(navBar),
+  router,
+  store
 });

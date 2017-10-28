@@ -6,10 +6,10 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav pull-right">
           <li class="nav-item">
-            <a class="nav-link" href="#portfolio">Portfolio</a>
+            <router-link to="/" class="nav-link">Home</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
+            <router-link to="/posts" class="nav-link">Posts</router-link>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#contact">Contact</a>
@@ -21,9 +21,7 @@
 </template>
 <script>
   export default {
-    mounted() {
-      // console.log("Component ready!");
-    }
+    name: "navBar"
   }
 </script>
 <style scope lang="scss">
