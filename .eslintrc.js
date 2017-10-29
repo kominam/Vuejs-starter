@@ -1,10 +1,10 @@
 module.exports = {
   root: true,
   env: {
-    'browser': true,
-    'node': true
+    browser: true,
+    node: true
   },
-  extends: 'eslint:recommended',
+  extends: 'standard',
   parserOptions: {
     'parser': 'babel-eslint',
     'sourceType': 'module',

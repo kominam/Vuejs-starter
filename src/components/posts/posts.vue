@@ -6,18 +6,21 @@
   </div>
 </template>
 <script>
-// import { mapGetters, mapActions, mapState } from 'vuex'
+  import { mapGetters, mapActions } from 'vuex'
   export default {
+    name: 'posts',
     computed: {
-      posts() { return this.$store.getters['posts/all_posts'] }
+      ...mapGetters({
+        posts: 'posts/all_posts'
+      })
     },
-    created() {
-      this.fetchPost();
+    created () {
+      this.fetchPost()
     },
     methods: {
-      fetchPost() {
-        this.$store.dispatch('posts/fetchAllPosts')
-      }
+      ...mapActions({
+        fetchPost: 'posts/fetchAllPosts'
+      })
     }
   }
 </script>
