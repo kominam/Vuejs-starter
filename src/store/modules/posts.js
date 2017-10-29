@@ -1,5 +1,4 @@
 import * as types from '../mutation-types'
-import { HTTP } from '../../../config/api'
 
 export default {
   namespaced: true,
@@ -16,7 +15,7 @@ export default {
   },
   actions: {
     fetchAllPosts ({ commit }) {
-      HTTP.get('/posts').then(response => {
+      window.axios.get('/posts').then(response => {
         commit(types.GET_POSTS, response.data)
       }).catch(error => {
         console.log(error);
