@@ -1,14 +1,16 @@
-import Vue from 'vue';
+import Vue from 'vue'
+import navBar from '@components/navBar'
+import Http from '@plugins/axios'
 import router from './routes/index'
-import navBar from '@components/navBar';
-import store from './store/store';
+import store from './store/store'
 
-require('../bootstrap/bootstrap');
+require('../bootstrap/bootstrap')
 
-Vue.component('navBar', navBar);
+Vue.component('navBar', navBar)
+Vue.use(Http)
 
 new Vue({
   el: "#app",
   router,
   store
-});
+})
