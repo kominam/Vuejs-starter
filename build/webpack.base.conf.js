@@ -2,9 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  entry: path.resolve(__dirname, 'src/main'),
+  entry: path.join(__dirname, '..', 'src/main'),
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.join(__dirname, '..', 'dist'),
     publicPath: '/dist/',
     filename: 'bundle.js'
   },
@@ -28,10 +28,6 @@ module.exports = {
         }
       },
       {
-        test: /\.(css|scss)$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
-      },
-      {
         test: /\.js$/,
         loader: 'babel-loader',
         exclude: /node_modules/
@@ -49,13 +45,10 @@ module.exports = {
   resolve: {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@components': path.resolve(__dirname, 'src/components/'),
-      '@plugins': path.resolve(__dirname, 'src/plugins')
+      '@components': path.join(__dirname, '..', 'src/components/'),
+      '@plugins': path.join(__dirname, '..', 'src/plugins')
     },
     extensions: ['.js', '.vue']
-  },
-  devServer: {
-    historyApiFallback: true
   },
   plugins: [
     new webpack.ProvidePlugin({
@@ -63,24 +56,4 @@ module.exports = {
       jQuery: "jquery"
     })
   ]
-}
-
-if (process.env.NODE_ENV === 'production') {
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ])
 }
