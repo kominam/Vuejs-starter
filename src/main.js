@@ -1,16 +1,17 @@
-import Vue from 'vue'
-import navBar from '@components/navBar'
-import Http from '@plugins/axios'
-import router from './routes/index'
-import store from './store/store'
+import Vue from 'vue';
+import navBar from '@components/navBar';
+import Http from '@plugins/axios';
+import router from './routes/index';
+import store from './store/store';
 
-require('../bootstrap/bootstrap')
+require('../bootstrap/bootstrap');
 
-Vue.component('navBar', navBar)
-Vue.use(Http)
+Vue.component('navBar', navBar);
+Vue.use(Http);
 
+// eslint-disable-next-line
 new Vue({
-  el: "#app",
+  el: '#app',
   router,
-  store
-})
+  store,
+});
