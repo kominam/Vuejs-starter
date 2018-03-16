@@ -1,15 +1,28 @@
 module.exports = {
   root: true,
+  parser: 'babel-eslint',
   env: {
     browser: true,
     node: true
   },
-  extends: 'standard',
-  parserOptions: {
-    'parser': 'babel-eslint',
-    'sourceType': 'module',
-    'ecmaVersion': 6
-  },
+  extends: 'airbnb',
   plugins: ['vue'],
-  rules: {}
+  settings: {
+    "import/resolver": {
+      webpack: {
+        config: "build/webpack.base.conf.js"
+      }
+    }
+  },
+  rules: {
+    'vue/jsx-uses-vars': 2,
+    "no-console": 0,
+    'import/no-extraneous-dependencies': 0,
+    "import/extensions": ["error", "always", {
+      "js": "never",
+      "vue": "never"
+    }],
+    "no-param-reassign": [2, { "props": false }],
+    "no-shadow": 0,
+  },
 }

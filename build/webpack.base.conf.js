@@ -6,7 +6,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, '..', 'dist'),
     publicPath: '/dist/',
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -14,7 +14,7 @@ module.exports = {
         enforce: 'pre',
         test: /\.vue$/,
         loader: 'eslint-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.vue$/,
@@ -23,37 +23,37 @@ module.exports = {
           loaders: {
             // https://vue-loader.vuejs.org/en/configurations/pre-processors.html
             scss: 'vue-style-loader!css-loader!sass-loader',
-            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
-          }
-        }
+            sass: 'vue-style-loader!css-loader!sass-loader?indentedSyntax',
+          },
+        },
       },
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'
+        loader: 'url-loader?limit=10000&name=fonts/[name].[ext]',
       },
       {
         test: /\.(png|gif|jpg|svg|jpeg)$/,
-        loader: 'file-loader?name=images/[name].[ext]'
-      }
-    ]
+        loader: 'file-loader?name=images/[name].[ext]',
+      },
+    ],
   },
   resolve: {
     alias: {
-      'vue$': 'vue/dist/vue.esm.js',
+      vue$: 'vue/dist/vue.esm.js',
       '@components': path.join(__dirname, '..', 'src/components/'),
-      '@plugins': path.join(__dirname, '..', 'src/plugins')
+      '@plugins': path.join(__dirname, '..', 'src/plugins'),
     },
-    extensions: ['.js', '.vue']
+    extensions: ['.js', '.vue'],
   },
   plugins: [
     new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery"
-    })
-  ]
-}
+      $: 'jquery',
+      jQuery: 'jquery',
+    }),
+  ],
+};

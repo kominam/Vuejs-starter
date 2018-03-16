@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.conf.js --progress --hide-modules",
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.conf.js --open --colors --hot",
+    "dev": "cross-env NODE_ENV=development webpack-dashboard -- webpack-dev-server --config build/webpack.dev.conf.js --open --colors --hot",
+    "lint": "eslint --ext .js, .vue --ignore-path .gitignore .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -37,13 +38,14 @@
     "babel-preset-stage-2": "^6.24.1",
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
-    "eslint": "^4.8.0",
-    "eslint-config-standard": "^10.2.1",
+    "eslint": "^4.18.2",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-import-resolver-webpack": "^0.8.4",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-node": "^5.2.1",
     "eslint-plugin-promise": "^3.6.0",
-    "eslint-plugin-standard": "^3.0.1",
     "eslint-plugin-vue": "^2.1.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
@@ -54,6 +56,7 @@
     "vue-loader": "^13.2.1",
     "vue-template-compiler": "^2.4.4",
     "webpack": "^3.6.0",
+    "webpack-dashboard": "^1.1.1",
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.1"
   }
